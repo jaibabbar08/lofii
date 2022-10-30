@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/0ba0bdf59c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Karla:wght@300&family=VT323&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #000;
+            background: -webkit-radial-gradient(right 34% bottom 5%, ellipse, #33202a, #000 80%, #000);
+            background: radial-gradient(ellipse at right 34% bottom 5%, #33202a, #000 80%, #000);
+            background-position: 0;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            color: #f5f4f6;
+            font: 1.3rem Inconsolata, monospace;
+            text-shadow: 0 0 5px #f5f4f6;
+
+        }
+
+        body:before {
+            z-index: 1000;
+            opacity: .4;
+            background: -webkit-radial-gradient(right 34% bottom 5%, ellipse, transparent 60%, #000);
+            background: radial-gradient(ellipse at right 34% bottom 5%, transparent 60%, #000);
+        }
+
+        body:after,
+        body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+        }
+
+        body:after,
+        body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+        }
+
+        body:after {
+            opacity: .3;
+            background: -webkit-repeating-linear-gradient(bottom, #000, #000 2px, transparent, transparent 4px);
+            background: repeating-linear-gradient(0deg, #000, #000 2px, transparent, transparent 4px);
+        }
+
+        .container {
+            display: block;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            box-sizing: border-box;
+            margin: 0;
+            min-width: 100%;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+            right: 0;
+            box-sizing: border-box;
+            padding: 0;
+            border: none;
+            margin: auto;
+            display: block;
+            min-width: 100%;
+            max-width: 100%;
+            min-height: 100%;
+            max-height: 100%;
+        
+        }
+
+        .volumebar .slider {
+            -webkit-appearance: none;
+            width: 8.99rem;
+            height: 0.125rem;
+            background: #f1e7e7;
+            border: 2px solid #ccf604;
+            border-radius: 1rem;
+            outline: none;
+            text-shadow: var(--green-glow);
+            animation: text-blink 0.01s steps(2) infinite;
+
+        }
+
+        .volumebar .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: #ccf604;
+            text-shadow: var(--green-glow);
+            animation: text-blink 0.01s steps(2) infinite;
+        }
+
+        .tut {
+            /* color: #ffff; */
+            color: rgb(235, 235, 235);
+            text-transform: capitalize;
+            font-family: monospace;
+            font-size: 1.5rem;
+            /* text-shadow: 0 0 5px #f5f4f6; */    
+            text-shadow: var(--green-glow);
+            animation: text-blink 0.01s steps(2) infinite;
+            opacity: 0.955;
+            position: fixed;
+            margin-top: 0;
+            margin-bottom: 0;
+            left: 4rem;
+            margin-right: 2rem;
+            bottom: 4.5rem;
+        }
+
+
+        @media only screen and (max-width: 500px) {
+            .tut {
+                left: 2rem;
+                font-size: 1.8rem;
+                bottom: 8rem;
+
+            }
+        }
+
+        .btnarea {
+            position: fixed;
+            bottom: 2.17rem;
+            left: 3.4rem;
+            display: flex;
+            animation: text-blink 0.01s steps(2) infinite;
+        }
+
+        @media only screen and (max-width: 500px) {
+            .btnarea {
+                left: 1.4rem;
+                bottom: 5.5rem;
+
+            }
+        }
+
+        #svg {
+            height: 2rem;
+            width: 2rem;
+        }
+
+        #svg0 {
+            height: 2rem;
+            width: 2rem;
+        }
+
+        #svg2 {
+            height: 2rem;
+            width: 2rem;
+        }
+
+        #svg3 {
+            height: 2rem;
+            width: 2rem;
+        }
+
+        #lotticon {
+            height: 2rem;
+            width: 2rem;
+            padding-bottom: 0.4375rem;
+        }
+
+        .volumebar {
+            display: flex;
+            margin-left: 0%;
+            position: absolute;
+            bottom: 1.36rem;
+            left: 19rem;
+            padding: 10px;
+        }
+
+        @media only screen and (max-width: 500px) {
+            #svg {
+
+                width: 2.3rem;
+                height: 2.3rem;
+            }
+
+            #svg0 {
+                width: 2.3rem;
+                height: 2.3rem;
+            }
+
+            #svg2 {
+                width: 2.3rem;
+                height: 2.3rem;
+            }
+
+            #svg3 {
+                width: 2.3rem;
+                height: 2.3rem;
+            }
+
+            #lotticon {
+                height: 2.5rem;
+                width: 2.5rem;
+
+            }
+
+            .volumebar {
+                bottom: 1rem;
+                left: 1.26rem;
+            }
+
+            .volumebar .slider {
+                width: 7.5rem;
+
+
+            }
+        }
+
+        #playicon {
+            display: none;
+        }
+
+        #muteicon {
+            display: none;
+        }
+
+        #muteicon1 {
+            display: none;
+        }
+        #btn10 {
+            display: none;
+        }
+
+        #btnstar {
+            position: absolute;
+            right: 5rem;
+            top: 5rem;
+            animation: text-blink 0.01s steps(2) infinite;
+        }
+        
+
+        .about {
+            position: absolute;
+            right: 10.4rem;
+            top: 12rem;
+            margin-top: 0rem;
+            display: none;
+            opacity: 1;
+            font-family: "VT323", monospace;
+            font-size: 1.7rem;
+            color: rgb(235, 235, 235);
+            text-shadow: var(--green-glow);
+            animation: text-blink 0.01s steps(2) infinite;
+        }
+
+        @keyframes text-blink {
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        :root {
+            --dim-green-glow: 0px 0px 1px hsl(120, 100%, 80%), 0px 0px 10px green;
+            --green-glow-drop-shadow: drop-shadow(0px 0px 2px hsl(120, 100%, 80%)) 
+            drop-shadow(0px 0px 8px green);
+            --green-glow-small: 0px 0px 1px hsl(120, 100%, 80%), 0px 0px 2px hsl(120, 100%, 80%), 
+            0px 0px 10px green;
+            --green-glow: 0px 0px 2px hsl(120, 100%, 80%), 0px 0px 15px green, 0px 0px 60px green;
+            --red-glow: 0px 0px 1px hsl(0, 100%, 80%), 0px 0px 2px hsl(0, 100%, 80%), 0px 0px 15px hsl(0, 100%,
+                    50%), 0px 0px 60px red;
+            --blue-glow: 0px 0px 1px hsl(192, 100%, 80%), 0px 0px 16px hsl(244, 90%, 49%), 0px 0px 30px 
+            hsl(244, 100%, 50%), 0px 0px 60px white;
+        }
+
+        .about a {
+            color: #ccf604;
+            text-decoration: none;
+        }
+
+        #creatorimg {
+            position: absolute;
+            height: 6rem;
+            width: 6rem;
+            top: 5rem;
+            right: 11.8rem;
+            margin-top: 0rem;
+            display: none;
+            box-shadow: var(--green-glow-small);
+            opacity: 0.99;
+            /* animation: text-blink 0.01s steps(2) infinite; */
+        }
+        @media only screen and (max-width: 500px){
+            #btnstar{
+                top: 4rem;
+                right: 3rem;
+            }
+            #creatorimg{
+                top: 8rem;
+                right: 5rem;
+            }
+            #aboutcreator{
+                top: 15rem;
+                right: 4rem;
+            }
+        }
+       
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img id="imge" src="1.gif" alt="gif">
+        <button id="btnstar" style="background: transparent;outline: none; border: 0; margin-left: 0%;cursor: pointer;">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-star " color="#ccf604">
+                <g>
+                    <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                    </polygon>
+                </g>
+            </svg>
+        </button>
+        <pre id="creatorimg">
+            <img src="creatorimage.jpg" alt="creator is on leave:(">
+        </pre>
+        <pre class="about" id="aboutcreator">creator:<a href="https://twitter.com/jaibabbar2"><br>@jaibabbar2</a></pre>
+        <div class="tut">
+            <p id="musictitle">tere bina...</p>
+        </div>
+        <div class="btnarea">
+            <button id="btn9" style="background: transparent;outline: none; border: 0; margin-left: 0%;">
+                <lottie-player id="lotticon" src="https://assets5.lottiefiles.com/packages/lf20_vrhfv05v.json"
+                    background="transparent" speed="1" style=" fill: #ccf604;" loop >
+                </lottie-player>
+            </button>
+            <button id="btn10" style="background: transparent;outline: none; border: 0; margin-left: 0%;">
+                <lottie-player id="lotticon" src="https://assets5.lottiefiles.com/packages/lf20_vrhfv05v.json"
+                    background="transparent" speed="1" style=" fill: #ccf604;" loop autoplay>
+                </lottie-player>
+            </button>
+
+
+
+            <button id="btn0"
+                style="background: transparent;outline: none; border: 0; margin-left: 0%;cursor: pointer;">
+                <svg id="svg0" viewBox="0 0 24 24" fill="#fff" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-left "
+                    color="#ccf604">
+                    <g>
+                        <polyline points="11 17 6 12 11 7"></polyline>
+                        <polyline points="18 17 13 12 18 7"></polyline>
+                    </g>
+                </svg>
+            </button>
+            <button id="btn"
+                style="background: transparent;outline: none; border: 0;margin-left: 0%;cursor: pointer;position: relative;">
+                <svg id="svg" viewBox="0 0 24 24" fill="#fff" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-play " color="#ccf604">
+                    <g>
+                        <polygon id="playicon" points="5 3 19 12 5 21 5 3" style="position: relative; opacity: 0.9">
+                        </polygon>
+                        <rect id="pauseicon" x="6" y="4" width="4" height="16"></rect>
+                        <rect id="pauseicon1" x="14" y="4" width="4" height="16"></rect>
+                    </g>
+                </svg>
+            </button>
+            <button id="btn2"
+                style="background: transparent;outline: none; border: 0; margin-left: 0%;cursor: pointer;">
+                <svg id="svg2" viewBox="0 0 24 24" fill="#fff" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-right "
+                    color="#ccf604">
+                    <g>
+                        <polyline points="13 17 18 12 13 7"></polyline>
+                        <polyline points="6 17 11 12 6 7"></polyline>
+                    </g>
+                </svg>
+            </button>
+            <button id="btn3"
+                style="background: transparent;outline: none; border: 0; margin-left: 0%;cursor: pointer;">
+                <svg id="svg3" viewBox="0 0 24 24" fill="#fff" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-2 " color="#ccf604">
+                    <g>
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <path id="unmuteicon" d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <line id="muteicon" x1="23" y1="9" x2="17" y2="15"></line>
+                        <line id="muteicon1" x1="17" y1="9" x2="23" y2="15"></line>
+                    </g>
+                </svg>
+
+            </button>
+        </div>
+
+
+        <pre class="volumebar">
+            <input type="range" class="slider" min="0" max="100" id="myRange" step="1" value="90">
+        </pre>
+
+
+    </div>
+    <!-- <audio id="aud1" src="terebina.mp3" ></audio> -->
+    <audio id="aud1">
+        <source src="terebina.mp3" type="audio/mp3">
+    </audio>
+</body>
+<script src="app.js"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+</html>
